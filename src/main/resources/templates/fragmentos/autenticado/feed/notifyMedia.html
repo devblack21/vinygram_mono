@@ -1,0 +1,15 @@
+<div class="media" th:each="notification : ${notifications}">
+
+	<img width="50px" height="50px"
+		class="  img-thumbnail float-left img-perfil img-perfil-post"
+		th:src="${notification.senderUser.urlImage}" alt="..."></img>
+	<div class="post-username">
+		<h6>
+			<span th:text="${notification.senderUser.username}"></span>
+		</h6>
+		<span th:text="${notification.operation.toString()}"></span>
+
+	</div>
+	<hr class="notificacao-hr">
+</div>
+<hr class="notificacao-hr">

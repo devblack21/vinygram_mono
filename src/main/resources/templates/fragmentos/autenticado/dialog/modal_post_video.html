@@ -1,0 +1,84 @@
+<div th:fragment="modal_video">
+<form th:action="@{/post/saveVideo}" method="post" th:object="${post}"  enctype="multipart/form-data">
+	<div class="modal fade" th:id="modalVIDEO" data-backdrop="static" 
+									tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog" >
+										<div class="modal-content">
+											<div class="modal-header">
+	
+												<h5 class="modal-title" id="exampleModalLabel">Nova publicação</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+	
+											</div>
+	
+											<div class="modal-body">
+												
+											
+												<figure class="figure ">
+													<iframe id="embed" class="figure-img img-fluid rounded" width="3000px" height="100" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+												</figure>
+												<div class="form-group">
+												<button type="button" class="btn btn-primary form-control" onclick="embed()">
+												<svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-arrow-repeat" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/> <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/> </svg>
+												</button>
+												</div>
+												
+												<hr><br>	
+												
+											
+												<div class="row">
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Site</label>
+														    <input type="text" class="form-control" id="site" name="site" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o site de qual está pegando o video.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Código do video</label>
+														    <input type="text" class="form-control" id="codigo" name="codigoVideo"  >
+														    <small id="titleHelp" class="form-text text-muted">Insira o código do video.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="title_txt">Titulo da Publicação</label>
+														    <input type="text" class="form-control" id="title_txt" th:field="*{title}" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="subtitle">Conteúdo</label>
+														     <textarea class="form-control" id="subtitle" rows="3" maxlength="200" th:field="*{subtitle}" ></textarea>
+														    <small id="subtitleHelp" class="form-text text-muted">Insira até 200 caracteres.</small>
+														  </div>
+													</div>
+												
+												</div>
+												
+												
+												
+											</div>
+	
+	
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" id="edit_view"
+													data-dismiss="modal">Cancelar</button>
+												<button type="submit" class="btn btn-primary">Publicar</button>
+											</div>
+	
+										</div>
+							</div>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,131 @@
+<div th:fragment="body">
+	<div class="container-fluid">
+
+
+
+		<div class="mx-auto  " style="width: 25rem;">
+			<div hidden="true" th:if="${param.error}">
+				<div class="alert alert-danger">Usuario/senha invalidos!</div>
+			</div>
+
+			<div hidden="true" th:if="${param.logout}">
+				<div class="alert alert-info">Usuario desconectado!</div>
+			</div>
+
+			<div class="card card-login ">
+				<h5 class="card-header font-login">
+					<center>Cadastro</center>
+				</h5>
+				
+				<div class="card-body">
+
+					<form th:action="@{/save}" th:object="${user}" id="cadUser" name="cadUser"
+						enctype="multipart/form-data" method="POST">
+
+					<div class="row">
+						
+						<div class="col-md-12">
+							<div th:class="${#strings.isEmpty(error) && !#strings.isEmpty(success)} ? 'alert  alert-default' : 'alert  alert-danger alert-dismissible fade show'" th:if="${error}" role="alert">
+								<span th:if="${message}" th:text="${message}"></span>
+							</div>
+							
+							<div th:class="${#strings.isEmpty(success) && !#strings.isEmpty(error)} ? 'alert  alert-default' : 'alert  alert-success alert-dismissible fade show'" th:if="${success ne null and error eq null}" role="alert">
+								<span th:if="${message}" th:text="${message}"></span>
+							</div>
+						</div>
+					
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="title_txt">Nome</label> <input type="text" th:field="*{firstName}"
+									th:class="${#fields.hasErrors('${user.firstName}')} ? 'form-control form-control-sm  is-invalid' : 'form-control form-control-sm  ' "  id="title_txt"> 
+									
+									<div th:if="${#fields.hasErrors('${user.firstName}')}" class="error">
+										<span  th:if="${#fields.hasErrors('${user.firstName}')}" th:errors="*{firstName}"></span>
+									</div>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="title_txt">Sobrenome</label> <input type="text" th:field="*{lastName}"
+									th:class="${#fields.hasErrors('${user.lastName}')} ? 'form-control form-control-sm  is-invalid' : 'form-control form-control-sm  ' "  id="title_txt"> 
+									
+									<div th:if="${#fields.hasErrors('${user.lastName}')}" class="error">
+										<span  th:if="${#fields.hasErrors('${user.lastName}')}" th:errors="*{lastName}"></span>
+									</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12">
+							<div class="form-group ">
+								<label class="label-login" for="username">Username*:</label> 
+								<input th:class="${#fields.hasErrors('${user.username}')} ? 'form-control form-control-sm  is-invalid' : 'form-control form-control-sm  ' "  id="username"
+									th:field="*{username}" type="text" name="username"
+									placeholder="Usuario" />
+									<div th:if="${#fields.hasErrors('${user.username}')}" class="error">
+										<span  th:if="${#fields.hasErrors('${user.username}')}" th:errors="*{username}"></span>
+									</div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="form-group ">
+								<label class="label-login" for="username">Email*:</label> <input
+									th:class="${#fields.hasErrors('${user.email}')} ? 'form-control form-control-sm  is-invalid' : 'form-control form-control-sm  ' " id="email"
+									th:field="*{email}" type="email" name="email"
+									placeholder="Email" />
+									
+									<div th:if="${#fields.hasErrors('${user.email}')}" class="error">
+										<span  th:if="${#fields.hasErrors('${user.email}')}" th:errors="*{email}"></span>
+									</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="password">Senha*:</label> <input
+									th:class="${#fields.hasErrors('${user.password}')} ? 'form-control form-control-sm  is-invalid' : 'form-control form-control-sm  ' "  id="password"
+									type="password" name="password" placeholder="Senha"
+									th:field="*{password}" />
+									<div th:if="${#fields.hasErrors('${user.password}')}" class="error">
+										<span  th:if="${#fields.hasErrors('${user.password}')}" th:errors="*{password}"></span>
+									</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="password">Confirmar Senha*:</label> <input
+									th:class="${#fields.hasErrors('${user.password}')} ? 'form-control form-control-sm  is-invalid' : 'form-control form-control-sm  ' " id="cpassword"
+									type="password" name="cpassword"
+									placeholder="Confirmar Senha" />
+									<div  class="error">
+										<span id="er"></span>
+									</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="checkbox" /> <label for="remember-me">Li e
+									aceito os termos de contrato.</label>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<button type="submit"  class="btn btn-primary btn-sm btn-block">Cadastrar</button>
+	
+							</div>
+
+							<center>
+								<a class="link" th:href="@{/login}">Voltar para o Login</a>
+							</center>
+						</div>
+
+					</div>
+					</form>
+
+				</div>
+			</div>
+			<div></div>
+		</div>
+
+	</div>
+</div>

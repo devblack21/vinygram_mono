@@ -1,0 +1,133 @@
+<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:spring="http://www.springframework.org/tags">
+<head>
+	<meta charset="UTF-8">
+	<title>Vinygram</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+		crossorigin="anonymous"></link>
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	
+	<link rel="stylesheet" href="C:/Users/nyroc/git/vinygram_mono/vinygram/src/main/resources/static/css/style.css"
+		></link>
+	<script th:src="@{/js/functions.js}"></script>
+	
+	<style type="text/css">
+	body {
+		padding: 0px;
+	}
+	</style>
+	
+</head>
+<body>
+<script type="text/javascript">
+
+
+</script>
+<div th:fragment="modal_image">
+	<div class="" th:id="modalIMG"
+									tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+	
+												<h5 class="modal-title" id="exampleModalLabel">Perfil</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+	
+											</div>
+	
+											<div class="modal-body" >
+												<center>
+												<figure class="personal-figure" >	
+													<img  th:onclick="input_upload('upload','img_view')" src="https://res.cloudinary.com/devblack/image/upload/carros/sem-foto.jpg" loading="lazy" id="img_view" alt="auto" height="250px" class=" img-thumbnail img-fixe img-perfil img-perfil-dialog"  width="170px" >
+													<input id="upload" type="file"  th:attr ="onchange=${'validateFileType('upload','''img_view''');' name="file" accept=".jpg"/>
+												</figure>
+												</center>
+												<hr><br>	
+											
+												<div class="row">
+												
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Username</label>
+														    <input type="text" class="form-control" id="title_txt" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Email</label>
+														    <input type="email" class="form-control" id="title_txt" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Senha</label>
+														    <input type="password" class="form-control" id="title_txt" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Confirmar senha</label>
+														    <input type="password" class="form-control" id="title_txt" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+												
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="title_txt">Nome</label>
+														    <input type="text" class="form-control" id="title_txt" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="subtitle">Biografia</label>
+														     <textarea class="form-control" id="subtitle" rows="3" maxlength="200"></textarea>
+														    <small id="subtitleHelp" class="form-text text-muted">Insira até 200 caracteres.</small>
+														  </div>
+													</div>
+												
+												</div>
+												
+												
+												
+											</div>
+	
+	
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" id="edit_view"
+													data-dismiss="modal">Cancelar</button>
+												<button type="button" class="btn btn-primary">Publicar</button>
+											</div>
+	
+										</div>
+							</div>
+	</div>
+</div>
+
+
+</body>
+</html>

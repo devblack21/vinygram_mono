@@ -1,0 +1,116 @@
+<div th:fragment="body">
+
+	<div th:fragment="perfil">
+
+		<div id="cardPerfil" >
+			<div class=" ">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class=" post mb-3 col-md-6">
+						<div class="card">
+						<hr>
+						<center><h4>Desenvolvedor</h4></center>
+							<hr>
+			
+							<div class="row">
+									<div class="col-md-4 " align="center"></div>
+									<div class="col-md-4" align="center">
+									
+									
+									<div class="navbar-brand ">
+										<img width="90px" height="90px" class="img-thumbnail img-perfil "
+											th:src="${imgURL}"
+										alt="..."></img>
+										<br>
+										<h3><span th:text="${nick}" ></span></h3>
+									</div>
+									
+									
+									
+									</div>
+									<div class="col-md-4" align="center"></div>
+							</div>
+							
+							<div class="col-md-12">
+								<center> 
+									<i><span class=""  th:text="${nome}"></span></i>
+								</center>
+							</div>
+							
+							
+							
+						
+							
+						<div class="bio col-md-12" >
+										
+										<center><p><span th:text="${bio}"></span></p></center>
+		
+						</div>
+			
+						<hr>
+						<center><h6>Tecnologias utilizadas<h6></center>
+						<hr>
+						
+						
+						<div class="row">
+						
+							<div class=" col-md-12 " align="center" >
+							
+							
+								<div class="col-md-12">
+								<center> 
+									<span class="badge badge-pill badge-dark  tech"  th:each="tec : ${tecns}" th:text="${tec}"></span>&nbsp;&nbsp;&nbsp;
+								</center>
+							</div>
+								
+							</div>
+													
+						</div>
+						
+						<hr>
+						<center><h6>Minhas redes Sociais</h6></center>
+						<hr>
+						
+						<div class="row">
+						
+							<div class=" col-md-12 " align="center" >
+						
+								<div class="col-md-12">
+								<center> 
+									<a th:href="@{dev/instagram}" target="_black">
+									<img width="25px" height="25px" src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+									</a>
+									&nbsp;
+									<a th:href="@{dev/github}"  target="_black">
+									<img width="25px" height="25px" src="https://img.icons8.com/fluent/48/000000/github.png"/>
+									</a>
+									&nbsp;
+									<a th:href="@{dev/youtube}"  target="_black">
+									<img width="25px" height="25px" src="https://img.icons8.com/color/48/000000/youtube.png"/>
+									</a>
+									&nbsp;
+									<a th:href="@{dev/linkedin}"  target="_black">
+									<img width="25px" height="25px" src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>
+									</a>
+								</center>
+							</div>
+								
+							</div>
+								
+						
+					</div>
+					
+				<hr>
+						
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		
+	</div>
+	
+		
+	</div>
+</div>	
+
+
+</div>

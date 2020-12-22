@@ -1,0 +1,15 @@
+<body>
+	
+		
+		<div th:replace="/fragmentos/autenticado/perfil/perfil_card :: perfil">
+			<span>carrega o fragmento do perfil</span>
+		</div>
+	
+			<div th:include="${posts} :: body">
+				<span>o conteúdo será inserido aqui!</span>
+			
+		</div>
+	
+	
+</body>
+</html>

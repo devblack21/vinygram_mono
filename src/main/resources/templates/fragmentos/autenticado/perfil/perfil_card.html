@@ -1,0 +1,97 @@
+<div th:fragment="perfil">
+
+		<div id="cardPerfil" >
+			<div class=" ">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class=" post mb-3 col-md-6">
+						<div class="card">
+			
+							<hr>
+			
+							<div class="row">
+									<div class="col-md-4 " align="center"></div>
+									<div class="col-md-4" align="center">
+									
+									
+									<div class="navbar-brand ">
+										<img width="90px" height="90px" class="img-thumbnail img-perfil "
+											th:src="${imgURL}"
+										alt="..."></img>
+										<br>
+										<h3><span th:text="${user.username}"></span></h3>
+									</div>
+									
+									
+									
+									</div>
+									<div class="col-md-4" align="center"></div>
+							</div>
+							
+							<div class="col-md-12">
+								<center> 
+									<i><span class="" th:text="${user.firstName}"></span> <span class="" th:text="${user.lastName}"></span></i>
+							
+								</center>
+							</div>
+							
+							<div class="col-md-12">
+								<center> 
+									<span class="badge badge-pill badge-dark  likes-count foll" th:text="${followings}"></span>
+									<span class="badge badge-pill badge-dark  likes-count likes-count-invert foll " th:text="${follows}"></span>
+								</center>
+							</div>
+							
+						
+							
+						<div class="bio col-md-12" >
+										
+										<center><p><span th:text="${user.bio}"></span></p></center>
+									
+						</div>
+			
+						<hr>
+						
+						
+						<div class="row">
+						
+							<div class=" col-md-12 " align="center" >
+							
+							<form th:action="@{/user/followOrUnfollow}" id="followOrUnfollow">
+								<div class="butto" th:if="${isOtherUser}">
+									<button type="button"  class="btn btn-outline-dark" id="follow" th:hidden="!${follow}" th:onclick="|followOrUnfollow(${user.id});|">
+											<svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/> </svg>
+											Seguir
+									</button>
+									
+									<button type="button" class="btn btn-outline-dark" id="unfollow" th:hidden="${follow}" th:onclick="|followOrUnfollow(${user.id});|">
+											
+											<svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-person-x-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">   <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/> </svg>
+											Deixar de Seguir
+									</button>
+								</div>
+							</form>	
+								<button type="button" class="btn btn-outline-dark" onclick="modal_view('PROFILE');" th:if="${!isOtherUser}">
+										<svg width="25px" height="25px" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">   <path fill-rule="evenodd" d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/> </svg>
+										Editar Perfil
+								</button>
+								
+								</div>
+													
+						</div>
+						
+						<hr>
+					</div>
+			
+					<div class="col-md-3"></div>
+				</div>
+			</div>
+		
+	</div>
+	
+		<div th:replace="/fragmentos/autenticado/dialog/modal_perfil :: modal_perfil">
+				<span>carrega o fragmento modal para postagem de texto</span>
+		</div>
+		
+	</div>
+</div>	

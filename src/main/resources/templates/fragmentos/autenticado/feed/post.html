@@ -1,0 +1,53 @@
+<div th:fragment="post">	
+
+	
+		<div class=" " th:each="post : ${postsList}" >
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class=" post mb-3 col-md-6">
+					<div class="card">
+						<div class="media">
+							<img width="50px" height="50px"
+								class="  img-thumbnail float-left img-perfil img-perfil-post"
+								th:src="${post.user.urlImage}"
+								alt="..."></img>
+							<div class="post-username">
+								<h6 class=" "><span th:text="${post.user.username}"></span></h6>
+							</div>
+						</div>
+						<hr>
+						<div class="figure embed-responsive embed-responsive-16by9 video-embed"  th:if="${post.postVideo} != null">
+						<iframe width="1243" height="699" class="embed-responsive-item"
+							th:src="${post.postVideo.caminhoVideoString}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+							</iframe>
+						</div>
+						<figure class="figure" th:if="${post.urlImage} != null">
+						
+							
+							<img width="100%" height="80%" 
+								th:src="${post.urlImage}"
+								class="figure-img img-fluid rounded" alt="..."></img>
+						</figure>
+						<div class="card-body">
+							<h5 class="card-title"><span th:text="${post.title}"></span></h5>
+							<p class="card-text"><span th:text="${post.subtitle}"></span></p>
+							<p class="card-text">
+								<small class="text-muted"><span th:text="${post.dateString}"></span> </small>
+							</p>
+						</div>
+						<hr>
+						<div class="reacts video-embed">
+							<a th:id="|post-${post.id}|" th:onclick="|likeOrDeslike(${post.id})|">
+								<svg th:id="|post-svg-${post.id}|" width="25px" height="25px" viewBox="0 0 16 16" th:class="${post.containsLike()} ? 'bi bi-suit-heart-fill icon-deslike': 'bi bi-suit-heart-fill icon-like'" fill="currentColor" xmlns="http://www.w3.org/2000/svg"> <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" /> </svg>
+							</a> 
+							
+							<span th:id="|post-span-${post.id}|" class="badge badge-pill badge-dark  likes-count" th:text="${post.likesString}"></span>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+		</div>
+		
+</div>

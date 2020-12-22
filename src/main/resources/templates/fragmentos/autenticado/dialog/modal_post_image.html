@@ -1,0 +1,62 @@
+<div th:fragment="modal_image">
+<form th:action="@{/post/saveImage}" method="post" th:object="${post}"  enctype="multipart/form-data">
+	<div class="modal fade" th:id="modalIMG"
+									tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+	
+												<h5 class="modal-title" id="exampleModalLabel">Nova publicação</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+	
+											</div>
+	
+											<div class="modal-body" >
+												<center>
+												<figure class="personal-figure" >	
+													<img  onclick="input_upload('upload_image')" src="https://res.cloudinary.com/devblack/image/upload/posts/sem-foto.jpg" loading="lazy" id="img_view_modal_image" alt="auto" height="250px" class="rounded img-fluid img-thumbnail img-fixe"  width="300px" >
+													<input id="upload_image" type="file" onchange="validateFileType('upload_image','img_view_modal_image');" name="upload_image" accept=".jpg"/>
+												</figure>
+												</center>
+												<hr><br>	
+											
+												<div class="row">
+												
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="title_txt">Titulo da Publicação</label>
+														    <input type="text" class="form-control" id="title_txt" th:field="*{title}">
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="subtitle">Conteúdo</label>
+														     <textarea class="form-control" id="subtitle" rows="3" maxlength="200" th:field="*{subtitle}"></textarea>
+														    <small id="subtitleHelp" class="form-text text-muted">Insira até 200 caracteres.</small>
+														  </div>
+													</div>
+												
+												</div>
+												
+												
+												
+											</div>
+	
+	
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" id="edit_view"
+													data-dismiss="modal">Cancelar</button>
+												<button type="submit" class="btn btn-primary">Publicar</button>
+											</div>
+	
+										</div>
+							</div>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,18 @@
+<body>
+	<div th:fragment="modal">
+	
+	<div th:replace="/fragmentos/autenticado/dialog/modal_post_image :: modal_image">
+				<span>carrega o fragmento modal para postagem de imagem</span>
+		</div>
+		
+		<div th:replace="/fragmentos/autenticado/dialog/modal_post_video :: modal_video">
+				<span>carrega o fragmento modal para postagem de video</span>
+		</div>
+		
+		<div th:replace="/fragmentos/autenticado/dialog/modal_post_text :: modal_text">
+				<span>carrega o fragmento modal para postagem de texto</span>
+		</div>
+		
+	</div>
+</body>
+</html>

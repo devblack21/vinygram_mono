@@ -1,0 +1,107 @@
+<div th:fragment="modal_perfil">
+	<div class="modal fase" th:id="modalPerfil" data-backdrop="static"
+									tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog">
+									
+									<form th:action="@{/user/save}" th:object="${user}" id="saveProfile" enctype="multipart/form-data" method="POST">
+										<div class="modal-content">
+											<div class="modal-header">
+	
+												<h5 class="modal-title" id="exampleModalLabel">Perfil</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+	
+											</div>
+								
+											<div class="modal-body" >
+												<center>
+												<figure class="personal-figure" >	
+													<img  onclick="input_upload('upload')" th:src="${imgURL}" loading="lazy" id="img_view" alt="auto" height="250px" class=" img-thumbnail img-fixe img-perfil img-perfil-dialog"  width="170px" >
+													<input id="upload" type="file" onchange="validateFileType('upload','img_view');" name="upload" accept=".jpg"/>
+												</figure>
+												<div th:if="${#fields.hasErrors('${user.urlImage}')}" class="error">
+													<span  th:if="${#fields.hasErrors('${user.urlImage}')}" th:errors="*{urlImage}"></span>
+												</div>
+												</center>
+												<hr><br>	
+											
+												<div class="row">
+												
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Username</label>
+														    <input type="text" class="form-control" id="title_txt" th:field="*{username}" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Email</label>
+														    <input type="email" class="form-control" id="title_txt" th:field="*{email}" >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Senha</label>
+														    <input type="password" class="form-control" id="title_txt" th:field="*{password}">
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Confirmar senha</label>
+														    <input type="password" id="cpassword" name="cpassword" class="form-control"  >
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+												
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Nome</label>
+														    <input type="text" class="form-control" id="title_txt" th:field="*{firstName}">
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-6">
+														 <div class="form-group">
+														    <label for="title_txt">Sobrenome</label>
+														    <input type="text" class="form-control" id="title_txt" th:field="*{lastName}">
+														    <small id="titleHelp" class="form-text text-muted">Insira o titulo pelo qual será classificada sua publicação.</small>
+														  </div>
+													</div>
+													
+													<div class="col-md-12">
+														 <div class="form-group">
+														    <label for="subtitle">Biografia</label>
+														     <textarea class="form-control" id="subtitle" rows="3" maxlength="200" th:field="*{bio}"></textarea>
+														    <small id="subtitleHelp" class="form-text text-muted">Insira até 200 caracteres.</small>
+														  </div>
+													</div>
+												
+												</div>
+												
+												
+												
+											</div>
+	
+	
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" id="edit_view"
+													data-dismiss="modal">Cancelar</button>
+												<button type="submit" class="btn btn-primary">Salvar</button>
+											</div>
+	
+										</div>
+										</form>
+							</div>
+	</div>
+</div>

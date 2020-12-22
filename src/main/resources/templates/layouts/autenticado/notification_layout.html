@@ -1,0 +1,14 @@
+<div th:fragment="body">
+
+		<div th:replace="fragmentos/autenticado/feed/notifications :: notify">
+			<span>carrega o fragmento do cabeçalho</span>
+		</div>
+		
+		
+		<script type="text/javascript">
+		async function addImageToDOM() 
+		{
+			notification();
+		}
+		</script>	
+</div>

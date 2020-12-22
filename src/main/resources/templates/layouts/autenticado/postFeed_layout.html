@@ -1,0 +1,23 @@
+<div th:fragment="body">
+
+
+		<div th:replace="fragmentos/autenticado/menu_post :: menupost">
+			<span>carrega o fragmento do cabeçalho</span>
+		</div>
+
+		<div th:replace="fragmentos/autenticado/feed/post :: post">
+			<span>carrega o fragmento do cabeçalho</span>
+		</div>
+		
+		<div th:replace="/layouts/sub_layouts/modal_post_subLayout :: modal">
+			<span>carrega o fragmento do cabeçalho</span>
+		</div>
+		
+		<script type="text/javascript">
+		async function addImageToDOM() 
+		{
+			var v = [[${user.id}]];;
+			feed(v,false);
+		}
+		</script>	
+</div>
